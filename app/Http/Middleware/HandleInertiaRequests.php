@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Support\MunicipalRoles;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -35,11 +36,17 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
+        $user = $request->user();
+
         return [
             ...parent::share($request),
             'name' => config('app.name'),
             'auth' => [
-                'user' => $request->user(),
+                'user' => $user ? [
+                    ...$user->toArray(),
+                    'municipal_role_label' => $user->municipalRoleLabel(),
+                    'permissions' => MunicipalRoles::permissionsFor($user->municipal_role),
+                ] : null,
             ],
             'sidebarOpen' => ! $request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
         ];

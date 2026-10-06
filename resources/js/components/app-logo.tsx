@@ -1,18 +1,17 @@
-import { usePage } from '@inertiajs/react';
-
 import AppLogoIcon from '@/components/app-logo-icon';
 
 export default function AppLogo() {
-    const { name } = usePage().props;
-
     return (
         <>
-            <div className="flex aspect-square size-8 items-center justify-center rounded-md bg-sidebar-primary text-sidebar-primary-foreground">
+            <div className="flex aspect-square size-8 items-center justify-center rounded-md bg-[#246248] text-white">
                 <AppLogoIcon className="size-5 fill-current text-white dark:text-black" />
             </div>
             <div className="ml-1 grid flex-1 text-left text-sm">
-                <span className="mb-0.5 truncate leading-tight font-semibold">
-                    {name}
+                <span className="truncate leading-tight font-semibold">
+                    Mairie de Sébikotane
+                </span>
+                <span className="mt-0.5 truncate text-[9px] leading-tight tracking-[0.06em] text-muted-foreground uppercase">
+                    Administration communale
                 </span>
             </div>
         </>

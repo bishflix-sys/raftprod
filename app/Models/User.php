@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\MunicipalRoles;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Hidden;
@@ -17,6 +18,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
  * @property string $email
  * @property Carbon|null $email_verified_at
  * @property string $password
+ * @property string $municipal_role
  * @property string|null $two_factor_secret
  * @property string|null $two_factor_recovery_codes
  * @property Carbon|null $two_factor_confirmed_at
@@ -30,6 +32,23 @@ class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable, TwoFactorAuthenticatable;
+
+    protected static function booted(): void
+    {
+        static::creating(function (self $user): void {
+            $user->municipal_role ??= MunicipalRoles::UNASSIGNED;
+        });
+    }
+
+    public function hasMunicipalPermission(string $permission): bool
+    {
+        return in_array($permission, MunicipalRoles::permissionsFor($this->municipal_role), true);
+    }
+
+    public function municipalRoleLabel(): string
+    {
+        return MunicipalRoles::all()[$this->municipal_role]['label'] ?? 'Rôle non attribué';
+    }
 
     /**
      * Get the attributes that should be cast.
