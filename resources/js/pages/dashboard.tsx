@@ -909,7 +909,7 @@ export default function Dashboard() {
     return (
         <>
             <Head title="Pilotage communal" />
-            <div className="min-h-full bg-[#f4f6f3] px-4 py-6 text-[#1d3029] sm:px-6 lg:px-9 lg:py-8">
+            <div className="municipal-workspace min-h-full px-4 py-6 text-[#1d3029] sm:px-6 lg:px-9 lg:py-8">
                 <div className="mx-auto max-w-[1500px] space-y-6">
                     <header className="flex flex-col justify-between gap-5 border-b border-[#dce3de] pb-5 md:flex-row md:items-end">
                         <div>

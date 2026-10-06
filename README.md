@@ -4,8 +4,8 @@
 
 > Portail interne de pilotage et de gestion des services municipaux. L’application propose une interface en français, une gestion des accès par rôle et des espaces organisés autour de l’organigramme communal.
 
-| État du projet | Technologies |
-| --- | --- |
+| État du projet                                        | Technologies                                   |
+| ----------------------------------------------------- | ---------------------------------------------- |
 | 🟡 Version initiale · données métier de démonstration | Laravel 13 · Inertia 3 · React 19 · TypeScript |
 
 ## ✨ Présentation
@@ -87,14 +87,14 @@ L’adresse doit déjà correspondre à un compte en base. Un seul compte peut p
 
 ### Organigramme et rôles disponibles
 
-| Division | Rôles |
-| --- | --- |
-| **Exécutif local** | Maire · Cabinet du Maire |
-| **Administration générale** | Secrétaire Municipal · Bureau Informatique · Bureau Courrier |
-| **Administration générale et des Finances** | Division Administration générale et des Finances · Bureau de la Comptabilité des matières · Bureau des Recettes |
-| **Services Techniques** | Division Services Techniques · Bureau des Domaines, du Patrimoine et des Équipements marchands · Bureau de la Voirie, des Travaux, des Réseaux, de l’Entretien et de la Maintenance |
+| Division                                     | Rôles                                                                                                                                                                                           |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Exécutif local**                           | Maire · Cabinet du Maire                                                                                                                                                                        |
+| **Administration générale**                  | Secrétaire Municipal · Bureau Informatique · Bureau Courrier                                                                                                                                    |
+| **Administration générale et des Finances**  | Division Administration générale et des Finances · Bureau de la Comptabilité des matières · Bureau des Recettes                                                                                 |
+| **Services Techniques**                      | Division Services Techniques · Bureau des Domaines, du Patrimoine et des Équipements marchands · Bureau de la Voirie, des Travaux, des Réseaux, de l’Entretien et de la Maintenance             |
 | **Planification et Compétences transférées** | Division Planification et des Compétences transférées · Bureau Planification, Ressources naturelles et Développement durable · Bureau de l’Éducation, de la Culture, de la Jeunesse et du Sport |
-| **État Civil et Archives** | Division État Civil et Archives · Bureau de l’État Civil · Bureau des Archives |
+| **État Civil et Archives**                   | Division État Civil et Archives · Bureau de l’État Civil · Bureau des Archives                                                                                                                  |
 
 Les permissions sont définies dans `app/Support/MunicipalRoles.php`. Les routes revérifient les autorisations côté serveur; masquer une entrée de navigation ne remplace pas ce contrôle. Par mesure de protection, un utilisateur ne peut pas modifier son propre rôle et le dernier compte Maire ne peut pas être rétrogradé.
 

@@ -133,11 +133,19 @@ export function AppSidebar() {
     }
 
     return (
-        <Sidebar collapsible="icon" variant="inset">
-            <SidebarHeader>
+        <Sidebar
+            collapsible="icon"
+            variant="inset"
+            className="[&_[data-sidebar=sidebar]]:border-r [&_[data-sidebar=sidebar]]:border-white/10 [&_[data-sidebar=sidebar]]:bg-[#173f32] [&_[data-sidebar=sidebar]]:text-[#edf4ef]"
+        >
+            <SidebarHeader className="px-3 pt-4 pb-3">
                 <SidebarMenu>
                     <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" asChild>
+                        <SidebarMenuButton
+                            size="lg"
+                            className="h-14 rounded-lg px-2 hover:bg-white/8 data-[state=open]:bg-white/8"
+                            asChild
+                        >
                             <Link href={dashboard()} prefetch>
                                 <AppLogo />
                             </Link>
@@ -146,13 +154,13 @@ export function AppSidebar() {
                 </SidebarMenu>
             </SidebarHeader>
 
-            <SidebarContent>
+            <SidebarContent className="px-2 py-2">
                 <NavMain items={visibleNavItems} />
             </SidebarContent>
 
-            <SidebarFooter>
-                <div className="mx-2 mb-3 border-t border-sidebar-border px-2 pt-3 text-[10px] leading-4 text-muted-foreground group-data-[collapsible=icon]:hidden">
-                    <p className="flex items-center gap-1.5 font-medium text-foreground">
+            <SidebarFooter className="px-3 pb-4">
+                <div className="mx-1 mb-2 border-t border-white/12 px-2 pt-3 text-[10px] leading-4 text-white/55 group-data-[collapsible=icon]:hidden">
+                    <p className="flex items-center gap-1.5 font-medium text-white/85">
                         <CalendarDays className="size-3.5" /> Exercice 2026
                     </p>
                     <p className="mt-1">Administration communale</p>

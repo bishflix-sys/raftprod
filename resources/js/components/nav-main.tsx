@@ -17,9 +17,11 @@ export function NavMain({ items }: { items: NavItem[] }) {
     const currentUrl = new URL(url, 'http://localhost');
 
     return (
-        <SidebarGroup className="px-2 py-0">
-            <SidebarGroupLabel>Platform</SidebarGroupLabel>
-            <SidebarMenu>
+        <SidebarGroup className="px-1 py-0">
+            <SidebarGroupLabel className="mb-1 px-3 text-[10px] font-semibold tracking-[0.14em] text-white/45 uppercase">
+                Services municipaux
+            </SidebarGroupLabel>
+            <SidebarMenu className="gap-1">
                 {items.map((item) => (
                     <SidebarMenuItem key={item.title}>
                         {(() => {
@@ -39,6 +41,7 @@ export function NavMain({ items }: { items: NavItem[] }) {
                                 <SidebarMenuButton
                                     asChild
                                     isActive={isActive}
+                                    className="h-10 rounded-lg px-3 text-[13px] font-medium text-white/70 transition-colors hover:bg-white/8 hover:text-white data-[active=true]:bg-[#d9b24d] data-[active=true]:text-[#173f32] data-[active=true]:shadow-sm"
                                     tooltip={{ children: item.title }}
                                 >
                                     <Link href={item.href} prefetch>
